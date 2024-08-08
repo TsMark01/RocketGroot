@@ -58,11 +58,11 @@ def get_dollar_rub_rate(message):
     new_usd(dollar_rub_rate)
 
     bot.send_message(message.chat.id, f"Текущий курс доллара к рублю: {dollar_rub_rate:.2f}")
-    bot.send_message(message.chat.id, 'Я есть Грут\n/askgroot')
+    bot.send_message(message.chat.id, 'Я есть Грут\n/askgroot', reply_markup=create_keyboard(['/askgroot']))
 
 @bot.message_handler(content_types=['text'])
 def beleberda(message):
-    bot.send_message(message.chat.id, 'Я есть Грут\n/askgroot')
+    bot.send_message(message.chat.id, 'Я есть Грут\n/askgroot', reply_markup=create_keyboard(['/askgroot']))
 
 
 bot.polling()
