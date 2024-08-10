@@ -33,11 +33,11 @@ def create_keyboard(buttons_list):
 
 @bot.message_handler(commands=["start"])
 def start(message):
-    bot.send_message(message.chat.id, "Привет, я Ракета. Я оставлю тебе Грута, мне надо стырить ногу и лампочки, все я побежал!\n........................")
+    bot.send_message(message.chat.id, "Hello, I'm Rocket. I'll leave Groot to you, I need to steal leg and light bulbs, I'm running!\n........................")
 
 
     bot.send_message(message.chat.id,
-                     "Забыл сказать, я научил Грута говорить нынешний курс доллара к рублю. Он тебе скажет только если ты напишешь команду /askgrut", reply_markup=create_keyboard(['/askgroot']))
+                     "I forgot to say, I taught Groot to say the current dollar to ruble exchange rate. He will only tell you if you write the command /askgrut", reply_markup=create_keyboard(['/askgroot']))
 
 
 @bot.message_handler(commands=["askgroot"])
@@ -48,7 +48,7 @@ def get_dollar_rub_rate(message):
 
     # Проверьте код состояния ответа
     if response.status_code != 200:
-        raise Exception("Ошибка запроса к API ЦБ РФ")
+        raise Exception("Request Error")
 
     # Распакуйте результат
     data = response.json()
@@ -57,12 +57,12 @@ def get_dollar_rub_rate(message):
     dollar_rub_rate = data["Valute"]["USD"]["Value"]
     new_usd(dollar_rub_rate)
 
-    bot.send_message(message.chat.id, f"Текущий курс доллара к рублю: {dollar_rub_rate:.2f}")
-    bot.send_message(message.chat.id, 'Я есть Грут\n/askgroot', reply_markup=create_keyboard(['/askgroot']))
+    bot.send_message(message.chat.id, f"Current dollar to ruble exchange rate: {dollar_rub_rate:.2f}")
+    bot.send_message(message.chat.id, 'I am Groot\n/askgroot', reply_markup=create_keyboard(['/askgroot']))
 
 @bot.message_handler(content_types=['text'])
 def beleberda(message):
-    bot.send_message(message.chat.id, 'Я есть Грут\n/askgroot', reply_markup=create_keyboard(['/askgroot']))
+    bot.send_message(message.chat.id, 'I am Groot\n/askgroot', reply_markup=create_keyboard(['/askgroot']))
 
 
 bot.polling()
