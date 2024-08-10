@@ -37,7 +37,7 @@ def start(message):
 
 
     bot.send_message(message.chat.id,
-                     "I forgot to say, I taught Groot to say the current dollar to ruble exchange rate. He will only tell you if you write the command /askgrut", reply_markup=create_keyboard(['/askgroot']))
+                     "I forgot to say, I taught Groot to say the current dollar to ruble exchange rate. He will only tell you if you write the command /askgroot", reply_markup=create_keyboard(['/askgroot']))
 
 
 @bot.message_handler(commands=["askgroot"])
