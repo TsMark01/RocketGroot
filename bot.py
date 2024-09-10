@@ -1,6 +1,10 @@
 from telebot import *
 import pandas as pd
-import datetime
+import psycopg2
+from db import new_record
+
+import datetime as datetime
+
 from telebot.types import ReplyKeyboardMarkup
 bot = telebot.TeleBot('7489545535:AAFbTAe92LXW-pyCU8JO7Nl2nKTcUPOISoM')
 import csv
@@ -58,7 +62,10 @@ def get_dollar_rub_rate(message):
     new_usd(dollar_rub_rate)
 
     bot.send_message(message.chat.id, f"Current dollar to ruble exchange rate: {dollar_rub_rate:.2f}")
+    new_record(dollar_rub_rate)
+
     bot.send_message(message.chat.id, 'I am Groot\n/askgroot', reply_markup=create_keyboard(['/askgroot']))
+
 
 @bot.message_handler(content_types=['text'])
 def beleberda(message):
