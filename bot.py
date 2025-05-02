@@ -6,7 +6,7 @@ from db import new_record
 import datetime as datetime
 
 from telebot.types import ReplyKeyboardMarkup
-bot = telebot.TeleBot('7489545535:AAFbTAe92LXW-pyCU8JO7Nl2nKTcUPOISoM')
+bot = telebot.TeleBot('') #Здесь ваш токен
 import csv
 import requests
 
