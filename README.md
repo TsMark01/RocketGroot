@@ -1,1 +1,1 @@
-Этот бот позволяет получить курс доллара + есть сохранение в csv + сохранение в postgresql
+The simplest example of connection API to telegram bot + postgres integration.
